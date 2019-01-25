@@ -30,5 +30,24 @@ object DataManager {
             "Android programming with Intents Android programming with Intents Android programming with Intents"
         )
         notes.add(note)
+
+        note = NoteInfo(
+            CourseInfo(courseId = "android_async", courseTitle = "Android Async programming and Services"),
+            "Android Async",
+            "Android programming with Async Services"
+        )
+        notes.add(note)
+        note = NoteInfo(
+            CourseInfo(courseId = "java_lang", courseTitle = "Java Fundamentals: The Java Language"),
+            "Java Fundamentals",
+            "Java Fundamentals Java Fundamentals Java Fundamentals Java Fundamentals"
+        )
+        notes.add(note)
+        note = NoteInfo(
+            CourseInfo(courseId = "java_core", courseTitle = "Java Fundamentals: The core Platform"),
+            "Java The core Platform",
+            "Java Fundamentals: The core Platform Java Fundamentals: The core Platform Java Fundamentals: The core Platform"
+        )
+        notes.add(note)
     }
 }

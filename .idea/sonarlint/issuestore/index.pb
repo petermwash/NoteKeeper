@@ -31,3 +31,7 @@ X
 (gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
+c
+3app/src/main/java/com/pemwa/notekeeper/Constants.kt,d/6/d6c792433076d62a3ae699688a0fb4e21b65b16f
+S
+#app/src/main/res/menu/menu_main.xml,c/3/c3a80566aac3130f1ff9cc134a0739807a4ee7fa

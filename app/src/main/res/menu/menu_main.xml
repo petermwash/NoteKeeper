@@ -2,6 +2,8 @@
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
       tools:context="com.pemwa.notekeeper.MainActivity">
+    <item android:title="Next" android:id="@+id/action_next" app:showAsAction="ifRoom|withText"
+          android:icon="@drawable/ic_arrow_forward_white_24dp"/>
     <item android:id="@+id/action_settings"
           android:title="@string/action_settings"
           android:orderInCategory="100"

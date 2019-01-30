@@ -6,7 +6,7 @@ data class CourseInfo (val courseId: String, val courseTitle: String) {
     }
 }
 
-data class  NoteInfo (var course: CourseInfo, var noteTitle: String, var noteText: String) {
+data class  NoteInfo (var course: CourseInfo? = null, var noteTitle: String = "No title", var noteText: String? = null) {
     override fun toString(): String {
         return noteTitle
     }

@@ -1,6 +1,4 @@
 
-f
-6app/src/main/java/com/pemwa/notekeeper/MainActivity.kt,6/8/68084d997da6f537972418fcbe7e5ea28ce2c704
 X
 (app/src/main/res/layout/content_main.xml,7/c/7c023c74a9bce7eb3587d0708a1c0350f6266748
 e
@@ -35,3 +33,11 @@ c
 3app/src/main/java/com/pemwa/notekeeper/Constants.kt,d/6/d6c792433076d62a3ae699688a0fb4e21b65b16f
 S
 #app/src/main/res/menu/menu_main.xml,c/3/c3a80566aac3130f1ff9cc134a0739807a4ee7fa
+_
+/app/src/main/res/layout/content_note_list_1.xml,7/2/72d42f6461df4f13fd3f60b386b250554b5b2800
+f
+6app/src/main/java/com/pemwa/notekeeper/NoteActivity.kt,d/a/da3bfdba1095ba064ddc54a4612f8413bdbaf2d6
+m
+=app/src/main/java/com/pemwa/notekeeper/NoteRecyclerAdapter.kt,b/1/b1db7a8ffe997eade6da5e7d414119a65c68f802
+g
+7app/src/main/java/com/pemwa/notekeeper/ItemsActivity.kt,c/c/cc3e9c9dd2cda7d15d79ec063af6a2c4ea326304

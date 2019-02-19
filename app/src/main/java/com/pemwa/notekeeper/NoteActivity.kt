@@ -98,8 +98,11 @@ class NoteActivity : AppCompatActivity() {
     private fun saveNote() {
         val note = DataManager.notes[notePosition]
 
-        note.noteTitle = textNoteTitle.text.toString()
-        note.noteText = textNoteText.text.toString()
-        note.course = spinnerCourses.selectedItem as CourseInfo
+        if (textNoteText.text != null && textNoteTitle.text != null) {
+            note.noteTitle = textNoteTitle.text.toString()
+            note.noteText = textNoteText.text.toString()
+            note.course = spinnerCourses.selectedItem as CourseInfo
+        }
+
     }
 }

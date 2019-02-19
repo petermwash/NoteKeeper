@@ -16,17 +16,19 @@ class NoteListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_note_list)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
+        fab.setOnClickListener {
             val activityIntent = Intent(this, NoteActivity::class.java)
             startActivity(activityIntent)
         }
 
         listItems.layoutManager = LinearLayoutManager(this)
+        listItems.adapter = NoteRecyclerAdapter(this, DataManager.notes)
 
     }
 
     override fun onResume() {
         super.onResume()
+        listItems.adapter?.notifyDataSetChanged()
 
     }
 }

@@ -1,6 +1,7 @@
 package com.pemwa.notekeeper
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
@@ -8,6 +9,7 @@ import android.widget.ArrayAdapter
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.nav_header_items.*
 
 class NoteActivity : AppCompatActivity() {
 
@@ -102,6 +104,8 @@ class NoteActivity : AppCompatActivity() {
             note.noteTitle = textNoteTitle.text.toString()
             note.noteText = textNoteText.text.toString()
             note.course = spinnerCourses.selectedItem as CourseInfo
+        } else {
+            Snackbar.make(textView, "You didn't provide any data", Snackbar.LENGTH_SHORT).show()
         }
 
     }

@@ -66,6 +66,10 @@ class ItemsActivity : AppCompatActivity(),
             startActivity(Intent(this, NoteActivity::class.java))
         }
 
+        if (viewModel.isNewlycreated && savedInstanceState != null)
+            viewModel.restoreState(savedInstanceState)
+        viewModel.isNewlycreated = false
+
         handleDisplaySelection(viewModel.navDrawerDisplaySelection)
 
         val toggle = ActionBarDrawerToggle(
@@ -77,6 +81,13 @@ class ItemsActivity : AppCompatActivity(),
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        super.onSaveInstanceState(outState)
+
+        if (outState != null)
+            viewModel.saveState(outState)
     }
 
     private fun displayNotes() {

@@ -69,7 +69,26 @@ object DataManager {
         notes.add(note)
     }
 
-    fun loadNotes(): List<NoteInfo> {
-        return notes
+    fun loadNotes(vararg noteIds: Int): List<NoteInfo> {
+//        simulateLoadDilay()
+        val noteList: List<NoteInfo>
+
+        if (noteIds.isEmpty())
+            noteList = notes
+        else {
+            noteList = ArrayList(noteIds.size)
+            for (noteId in noteIds)
+                noteList.add(notes[noteId])
+        }
+        return noteList
+    }
+
+    fun noteIdsAsIntArray(recentlyViewedNotes: ArrayList<NoteInfo>): IntArray? {
+        val noteIds = ArrayList<Int>(recentlyViewedNotes.size)
+        for (note in recentlyViewedNotes) {
+            val noteId = notes.indexOf(note)
+            noteIds.add(noteId)
+        }
+        return noteIds.toIntArray()
     }
 }

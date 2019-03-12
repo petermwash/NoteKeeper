@@ -41,3 +41,9 @@ m
 =app/src/main/java/com/pemwa/notekeeper/NoteRecyclerAdapter.kt,b/1/b1db7a8ffe997eade6da5e7d414119a65c68f802
 g
 7app/src/main/java/com/pemwa/notekeeper/ItemsActivity.kt,c/c/cc3e9c9dd2cda7d15d79ec063af6a2c4ea326304
+o
+?app/src/main/java/com/pemwa/notekeeper/CourseRecyclerAdapter.kt,9/1/916f4f097422f1fd99bbb2ef962e5ea31547cfb2
+p
+@app/src/main/java/com/pemwa/notekeeper/ItemsActivityViewModel.kt,b/1/b19475ca465d6dfb7f6549d5a58ca467019a6908
+f
+6app/src/main/java/com/pemwa/notekeeper/MainActivity.kt,6/8/68084d997da6f537972418fcbe7e5ea28ce2c704

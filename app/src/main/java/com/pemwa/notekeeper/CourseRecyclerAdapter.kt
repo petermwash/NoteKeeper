@@ -27,12 +27,12 @@ class CourseRecyclerAdapter(private val context: Context, private val courses: L
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textCourse = itemView?.findViewById<TextView?>(R.id.textCourse)
+        val textCourse = itemView.findViewById<TextView?>(R.id.textCourse)
         var coursePosition = 0
 
         init {
-            itemView?.setOnClickListener {
-                Snackbar.make(it, courses[coursePosition]?.courseTitle, Snackbar.LENGTH_LONG).show()
+            itemView.setOnClickListener {
+                Snackbar.make(it, courses[coursePosition].courseTitle, Snackbar.LENGTH_LONG).show()
             }
         }
     }

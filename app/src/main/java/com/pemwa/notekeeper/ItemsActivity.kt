@@ -1,5 +1,7 @@
 package com.pemwa.notekeeper
 
+import android.arch.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -15,14 +17,19 @@ import kotlinx.android.synthetic.main.activity_items.*
 import kotlinx.android.synthetic.main.app_bar_items.*
 import kotlinx.android.synthetic.main.content_items.*
 
-class ItemsActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class ItemsActivity : AppCompatActivity(),
+    NavigationView.OnNavigationItemSelectedListener,
+        NoteRecyclerAdapter.OnNoteSelectedListener
+{
 
     private val noteLayoutManager by lazy {
         LinearLayoutManager(this)
     }
 
     private val noteRecyclerAdapter by lazy {
-        NoteRecyclerAdapter(this, DataManager.notes as List<NoteInfo>)
+        val adapter = NoteRecyclerAdapter(this, DataManager.loadNotes())
+        adapter.setOnSelectedListener(this)
+        adapter
     }
 
     private val courseLayoutManager by lazy {
@@ -33,17 +40,28 @@ class ItemsActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         CourseRecyclerAdapter(this, DataManager.courses.values.toList())
     }
 
+    private val viewModel by lazy {
+        ViewModelProviders.of(this)[ItemsActivityViewModel::class.java]
+    }
+
+    private val recentlyViewedNoteRecyclerAdapter by lazy {
+        val adapter = NoteRecyclerAdapter(this, viewModel.recentlyViewedNotes)
+        adapter.setOnSelectedListener(this)
+        adapter
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_items)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
+        fab.setOnClickListener {
 
             startActivity(Intent(this, NoteActivity::class.java))
         }
 
-        displayNotes()
+        handleDisplaySelection(viewModel.navDrawerDisplaySelection)
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
@@ -66,6 +84,13 @@ class ItemsActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         listItems.adapter = courseRecyclerAdapter
 
         nav_view.menu.findItem(R.id.nav_courses).isChecked = true
+    }
+
+    private fun displayRecentlyViewedNotes() {
+        listItems.layoutManager = noteLayoutManager
+        listItems.adapter = recentlyViewedNoteRecyclerAdapter
+
+        nav_view.menu.findItem(R.id.nav_recent_notes)
     }
 
     override fun onBackPressed() {
@@ -92,21 +117,20 @@ class ItemsActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        when (item.itemId) {
-            R.id.action_settings -> return true
-            else -> return super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.action_settings -> true
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_notes -> {
-                displayNotes()
-            }
-            R.id.nav_courses -> {
-                displayCourses()
-
+            R.id.nav_notes,
+            R.id.nav_courses,
+            R.id.nav_recent_notes -> {
+                handleDisplaySelection(item.itemId)
+                viewModel.navDrawerDisplaySelection = item.itemId
             }
             R.id.nav_share -> {
                 handleSelection("Do you think you've shared enough")
@@ -120,6 +144,24 @@ class ItemsActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelect
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    override fun onNoteSelected(note: NoteInfo) {
+        viewModel.addToRecentlyViewedNotes(note)
+    }
+
+    private fun handleDisplaySelection(itemId :Int) {
+        when (itemId) {
+            R.id.nav_notes -> {
+                displayNotes()
+            }
+            R.id.nav_courses -> {
+                displayCourses()
+            }
+            R.id.nav_recent_notes -> {
+                displayRecentlyViewedNotes()
+            }
+        }
     }
 
     private fun handleSelection(message: String) {

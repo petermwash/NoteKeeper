@@ -50,4 +50,8 @@ object DataManager {
         )
         notes.add(note)
     }
+
+    fun loadNotes(): List<NoteInfo> {
+        return this.notes
+    }
 }

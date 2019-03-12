@@ -1,4 +1,4 @@
-package com.pemwa.notekeeper
+package com.pemwa.notekeeper.adapter
 
 import android.content.Context
 import android.support.design.widget.Snackbar
@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.pemwa.notekeeper.model.CourseInfo
+import com.pemwa.notekeeper.R
 
 class CourseRecyclerAdapter(private val context: Context, private val courses: List<CourseInfo>) :
     RecyclerView.Adapter<CourseRecyclerAdapter.ViewHolder>() {

@@ -8,9 +8,12 @@ import android.support.test.espresso.contrib.NavigationViewActions
 import android.support.test.espresso.contrib.RecyclerViewActions
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.runner.AndroidJUnit4
-import org.junit.Assert.*
 import org.junit.runner.RunWith
 import android.support.test.rule.ActivityTestRule
+import com.pemwa.notekeeper.activity.ItemsActivity
+import com.pemwa.notekeeper.adapter.CourseRecyclerAdapter
+import com.pemwa.notekeeper.adapter.NoteRecyclerAdapter
+import com.pemwa.notekeeper.model.DataManager
 import org.hamcrest.CoreMatchers.containsString
 import org.junit.Rule
 import org.junit.Test

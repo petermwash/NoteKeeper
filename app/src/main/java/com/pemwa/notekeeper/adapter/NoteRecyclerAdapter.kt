@@ -1,4 +1,4 @@
-package com.pemwa.notekeeper
+package com.pemwa.notekeeper.adapter
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.pemwa.notekeeper.activity.NoteActivity
+import com.pemwa.notekeeper.model.NoteInfo
+import com.pemwa.notekeeper.R
+import com.pemwa.notekeeper.util.NOTE_POSITION
 
 class NoteRecyclerAdapter (private val context: Context,
                            private val notes: List<NoteInfo>):

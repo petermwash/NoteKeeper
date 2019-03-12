@@ -1,6 +1,5 @@
-package com.pemwa.notekeeper
+package com.pemwa.notekeeper.activity
 
-import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
@@ -13,6 +12,12 @@ import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
+import com.pemwa.notekeeper.view_model.ItemsActivityViewModel
+import com.pemwa.notekeeper.R
+import com.pemwa.notekeeper.adapter.CourseRecyclerAdapter
+import com.pemwa.notekeeper.adapter.NoteRecyclerAdapter
+import com.pemwa.notekeeper.model.DataManager
+import com.pemwa.notekeeper.model.NoteInfo
 import kotlinx.android.synthetic.main.activity_items.*
 import kotlinx.android.synthetic.main.app_bar_items.*
 import kotlinx.android.synthetic.main.content_items.*
@@ -64,7 +69,9 @@ class ItemsActivity : AppCompatActivity(),
         handleDisplaySelection(viewModel.navDrawerDisplaySelection)
 
         val toggle = ActionBarDrawerToggle(
-            this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
+            this, drawer_layout, toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
         )
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()

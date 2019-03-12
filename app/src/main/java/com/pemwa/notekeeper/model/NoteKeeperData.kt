@@ -1,4 +1,4 @@
-package com.pemwa.notekeeper
+package com.pemwa.notekeeper.model
 
 data class CourseInfo (val courseId: String, val courseTitle: String) {
     override fun toString(): String {

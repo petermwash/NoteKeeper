@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
       xmlns:app="http://schemas.android.com/apk/res-auto"
       xmlns:tools="http://schemas.android.com/tools"
-      tools:context="com.pemwa.notekeeper.NoteActivity">
+      tools:context="com.pemwa.notekeeper.activity.NoteActivity">
     <item android:title="Next" android:id="@+id/action_next" app:showAsAction="ifRoom|withText"
           android:icon="@drawable/ic_arrow_forward_white_24dp"/>
     <item android:id="@+id/action_settings"

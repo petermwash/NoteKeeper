@@ -1,11 +1,13 @@
-package com.pemwa.notekeeper
+package com.pemwa.notekeeper.activity
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
+import com.pemwa.notekeeper.R
+import com.pemwa.notekeeper.model.CourseInfo
+import com.pemwa.notekeeper.model.DataManager
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -29,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate( R.menu.menu_main, menu)
+        menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
 

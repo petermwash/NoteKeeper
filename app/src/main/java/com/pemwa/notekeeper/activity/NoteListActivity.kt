@@ -1,10 +1,12 @@
-package com.pemwa.notekeeper
+package com.pemwa.notekeeper.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.widget.ArrayAdapter
+import com.pemwa.notekeeper.R
+import com.pemwa.notekeeper.adapter.NoteRecyclerAdapter
+import com.pemwa.notekeeper.model.DataManager
 
 import kotlinx.android.synthetic.main.activity_note_list.*
 import kotlinx.android.synthetic.main.content_note_list.*

@@ -1,6 +1,8 @@
-package com.pemwa.notekeeper
+package com.pemwa.notekeeper.view_model
 
 import android.arch.lifecycle.ViewModel
+import com.pemwa.notekeeper.R
+import com.pemwa.notekeeper.model.NoteInfo
 
 class ItemsActivityViewModel : ViewModel() {
 

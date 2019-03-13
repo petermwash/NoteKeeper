@@ -26,8 +26,12 @@ class PseudoLocationManager (private val context: Context,
     }
 
     private fun triggerCallbackAndScheduleNext() {
-        if (enabled) postHandler.postDelayed(
-            { run() }, callackMilliSecs)
+        if (enabled)
+            postHandler.postDelayed(
+            {
+                run()
+            },
+                callackMilliSecs)
 
     }
 

@@ -95,6 +95,10 @@ class NoteActivity : AppCompatActivity() {
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
             R.id.action_settings -> true
+            R.id.action_message -> {
+                noteGetTogetherHelper.sendMessage(DataManager.notes[notePosition])
+                true
+            }
             R.id.action_next -> {
                 moveNext()
                 true

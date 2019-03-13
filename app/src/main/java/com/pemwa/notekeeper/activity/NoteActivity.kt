@@ -3,15 +3,18 @@ package com.pemwa.notekeeper.activity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
+import com.pemwa.notekeeper.NoteGetTogetherHelper
 import com.pemwa.notekeeper.R
 import com.pemwa.notekeeper.model.CourseInfo
 import com.pemwa.notekeeper.model.DataManager
 import com.pemwa.notekeeper.model.NoteInfo
 import com.pemwa.notekeeper.util.NOTE_POSITION
 import com.pemwa.notekeeper.util.POSITION_NOT_SET
+import com.pemwa.notekeeper.util.PseudoLocationManager
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -20,13 +23,20 @@ import kotlinx.android.synthetic.main.nav_header_items.*
 class NoteActivity : AppCompatActivity() {
 
     private var notePosition = POSITION_NOT_SET
+    private val TAG = this::class.simpleName
+
+//    private val locManager = PseudoLocationManager(this) { lat, lon ->
+//        Log.d(TAG, "Location Callback Lat:$lat Lon:$lon")
+//    }
+
+    val noteGetTogetherHelper = NoteGetTogetherHelper(this, lifecycle)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-//        val dataManager = DataManager()
         val adapterCourses = ArrayAdapter<CourseInfo>(this,
             android.R.layout.simple_spinner_item,
             DataManager.courses.values.toList())
@@ -48,6 +58,16 @@ class NoteActivity : AppCompatActivity() {
         }
 
     }
+
+//    override fun onStart() {
+//        super.onStart()
+//        locManager.start()
+//    }
+//
+//    override fun onStop() {
+//        locManager.stop()
+//        super.onStop()
+//    }
 
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
